@@ -1,6 +1,6 @@
 {
   "name": "object-key-convert",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Convert (nested) object keys to snake case or camel case with type safety.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
