@@ -1,6 +1,6 @@
 {
   "name": "object-key-convert",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert javascript object keys to snake case or camel case",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
