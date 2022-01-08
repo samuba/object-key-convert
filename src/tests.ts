@@ -3,7 +3,7 @@ import {
   keysToCamelCase,
   keysToSnakeCase,
   SnakeCasedPropertiesDeep,
-} from ".";
+} from "../lib";
 
 const demoTest = () => {
   const resultCameled = keysToCamelCase({
