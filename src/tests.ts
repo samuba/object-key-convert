@@ -1,4 +1,9 @@
-import { keysToCamelCase, keysToSnakeCase } from ".";
+import {
+  CamelCasedPropertiesDeep,
+  keysToCamelCase,
+  keysToSnakeCase,
+  SnakeCasedPropertiesDeep,
+} from ".";
 
 const demoTest = () => {
   const resultCameled = keysToCamelCase({
@@ -16,7 +21,7 @@ const demoTest = () => {
   assert(resultSnaked.dolor_sit[0].amet_consec === "tetur");
 };
 
-const advancedTypesTest = () => {
+const primitiveTypesTest = () => {
   const now = new Date();
   const originalSnaked = {
     lorem_ipsum: 1,
@@ -36,6 +41,15 @@ const advancedTypesTest = () => {
   assert(resultSnaked.dolor_sit[0].amet_consec === now);
 };
 
+const customTypesTest = () => {
+  type test = { fooBar: number; looMoo: boolean; blaBla: string };
+  type test2 = Omit<test, "fooBar">;
+  type snakedType = SnakeCasedPropertiesDeep<test2>;
+  type cameledType = Omit<snakedType, "loo_moo">;
+  type finalType = CamelCasedPropertiesDeep<cameledType & { bl_ob: number }>;
+  const _ = { blaBla: "test", blOb: 1 } as finalType;
+};
+
 const assert = (expr: any) => {
   if (!expr) {
     throw new Error(`Assertion failed for ${JSON.stringify(expr, null, 2)}`);
@@ -43,4 +57,5 @@ const assert = (expr: any) => {
 };
 
 demoTest();
-advancedTypesTest();
+primitiveTypesTest();
+customTypesTest();
