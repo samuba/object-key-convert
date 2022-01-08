@@ -8,6 +8,7 @@
     "test": "ts-node src/tests.ts",
     "build": "tsc",
     "lint": "echo 'no linting yet'",
+    "format": "echo 'no formatting yet'",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "version": "npm run format && git add -A src",
