@@ -4,10 +4,10 @@
 import type { CamelCase, DelimiterCase } from "type-fest";
 
 export type SnakeCasedPropertiesDeepPatched<Value> =
-  DelimiterCasedPropertiesDeepPatched<Value, "_">;
+  DelimiterCasedPropertiesDeepPatched<Value, "_", Date>;
 
 export type CamelCasedPropertiesDeepPatched<Value> =
-  CamelCasedPropertiesDeepPatchedInternal<Value>;
+  CamelCasedPropertiesDeepPatchedInternal<Value, Date>;
 
 type DelimiterCasedPropertiesDeepPatched<
   Value,

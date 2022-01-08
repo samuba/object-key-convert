@@ -1,7 +1,7 @@
 {
   "name": "object-key-convert",
   "version": "0.0.2",
-  "description": "Convert javascript object keys to snake case or camel case",
+  "description": "Convert (nested) object keys to snake case or camel case with type safety.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -12,7 +12,8 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "bumpAndPublish": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
