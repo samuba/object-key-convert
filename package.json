@@ -1,0 +1,45 @@
+{
+  "name": "object-key-convert",
+  "version": "0.0.1",
+  "description": "Convert javascript object keys to snake case or camel case",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "ts-node src/tests.ts",
+    "build": "tsc",
+    "lint": "echo 'no linting yet'",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuba/object-key-convert.git"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "keywords": [
+    "snake case",
+    "camel case",
+    "convert",
+    "object keys",
+    "object fields",
+    "object properties",
+    "keys",
+    "case"
+  ],
+  "author": "samuba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samuba/object-key-convert/issues"
+  },
+  "homepage": "https://github.com/samuba/object-key-convert#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "type-fest": "^2.9.0",
+    "typescript": "^4.5.4"
+  }
+}
