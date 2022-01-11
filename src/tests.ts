@@ -47,7 +47,7 @@ const customTypesTest = () => {
   type snakedType = SnakeCasedPropertiesDeep<test2>;
   type cameledType = Omit<snakedType, "loo_moo">;
   type finalType = CamelCasedPropertiesDeep<cameledType & { bl_ob: number }>;
-  const _ = { blaBla: "test", blOb: 1 } as finalType;
+  const _: finalType = { blaBla: "test", blOb: 1 };
 };
 
 const assert = (expr: any) => {
