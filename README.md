@@ -6,12 +6,12 @@ Convert (nested) object keys to snake case or camel case with type safety.
 - No runtimes dependencies
 - Works in: Browsers, Nodejs
 
-Especiialy useful for interacting with auto generated types from e.g. SQL databases where column names are usually snake cased.
+Especially useful for interacting with auto generated types from e.g. SQL databases where column names are usually snake cased.
 
 ## Usage
 
 ```javascript
-import { keysToCamelCase, keysToSnakeCase } from "samuba/object-key-convert";
+import { keysToCamelCase, keysToSnakeCase } from "object-key-convert";
 
 const resultCameled = keysToCamelCase({
   lorem_ipsum: 1,
