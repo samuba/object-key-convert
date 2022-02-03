@@ -1,13 +1,17 @@
 {
   "name": "object-key-convert",
+  "type": "module",
   "version": "0.0.10",
   "description": "Convert (nested) object keys to snake case or camel case with type safety.",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "source": "src/index.ts",
+  "main": "lib/index.cjs",
+  "module": "lib/index.module.js",
+  "unpkg": "lib/index.umd.js",
+  "exports": "lib/index.modern.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "ts-node src/tests.ts",
-    "build": "tsc",
+    "build": "microbundle && cp src/index-lib.d.ts lib/index.d.ts",
     "lint": "echo 'no linting yet'",
     "format": "echo 'no formatting yet'",
     "prepare": "npm run build",
@@ -39,8 +43,8 @@
     "url": "https://github.com/samuba/object-key-convert/issues"
   },
   "homepage": "https://github.com/samuba/object-key-convert#readme",
-  "dependencies": {},
   "devDependencies": {
+    "microbundle": "^0.14.2",
     "ts-node": "^10.4.0",
     "type-fest": "^2.9.0",
     "typescript": "^4.5.4"

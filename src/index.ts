@@ -1,4 +1,4 @@
-import type {
+import {
   CamelCasedPropertiesDeepPatched,
   SnakeCasedPropertiesDeepPatched,
 } from "./typeFestPatch";
@@ -7,11 +7,13 @@ export type SnakeCasedPropertiesDeep<T> = SnakeCasedPropertiesDeepPatched<T>;
 
 export type CamelCasedPropertiesDeep<T> = CamelCasedPropertiesDeepPatched<T>;
 
-export const keysToCamelCase = <T>(obj: T) =>
-  convertFields(obj, "camel") as CamelCasedPropertiesDeep<T>;
+export const keysToCamelCase = <T>(
+  obj: T
+): CamelCasedPropertiesDeepPatched<T> => convertFields(obj, "camel");
 
-export const keysToSnakeCase = <T>(obj: T) =>
-  convertFields(obj, "snake") as SnakeCasedPropertiesDeep<T>;
+export const keysToSnakeCase = <T>(
+  obj: T
+): SnakeCasedPropertiesDeepPatched<T> => convertFields(obj, "snake");
 
 const toCamel = (str: string) => {
   return str.replace(/([-_][a-z])/gi, (x) => {
