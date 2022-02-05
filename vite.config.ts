@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import path from "path";
 import dts from "vite-plugin-dts";
 
-module.exports = defineConfig({
+export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
