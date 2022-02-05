@@ -12,6 +12,7 @@
       "require": "./dist/index.umd.js"
     }
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "tsc && vitest run --coverage",
     "dev": "vite",
