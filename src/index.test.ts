@@ -1,3 +1,4 @@
+import { assert, test } from "vitest";
 import {
   CamelCasedPropertiesDeep,
   keysToCamelCase,
@@ -5,7 +6,7 @@ import {
   SnakeCasedPropertiesDeep,
 } from "./index";
 
-const demoTest = () => {
+test("demo", () => {
   const resultCameled = keysToCamelCase({
     lorem_ipsum: 1,
     dolor_sit: [{ amet_consec: "tetur" }],
@@ -19,9 +20,9 @@ const demoTest = () => {
   });
   assert(resultSnaked.lorem_ipsum === 1);
   assert(resultSnaked.dolor_sit[0].amet_consec === "tetur");
-};
+});
 
-const primitiveTypesTest = () => {
+test("primitive types", () => {
   const now = new Date();
   const originalSnaked = {
     lorem_ipsum: 1,
@@ -39,23 +40,13 @@ const primitiveTypesTest = () => {
   const resultSnaked: typeof originalSnaked = keysToSnakeCase(originalCameled);
   assert(resultSnaked.lorem_ipsum === 1);
   assert(resultSnaked.dolor_sit[0].amet_consec === now);
-};
+});
 
-const customTypesTest = () => {
+test("custom types", () => {
   type test = { fooBar: number; looMoo: boolean; blaBla: string };
   type test2 = Omit<test, "fooBar">;
   type snakedType = SnakeCasedPropertiesDeep<test2>;
   type cameledType = Omit<snakedType, "loo_moo">;
   type finalType = CamelCasedPropertiesDeep<cameledType & { bl_ob: number }>;
   const _: finalType = { blaBla: "test", blOb: 1 };
-};
-
-const assert = (expr: any) => {
-  if (!expr) {
-    throw new Error(`Assertion failed for ${JSON.stringify(expr, null, 2)}`);
-  }
-};
-
-demoTest();
-primitiveTypesTest();
-customTypesTest();
+});

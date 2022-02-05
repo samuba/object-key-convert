@@ -7,13 +7,14 @@ export type SnakeCasedPropertiesDeep<T> = SnakeCasedPropertiesDeepPatched<T>;
 
 export type CamelCasedPropertiesDeep<T> = CamelCasedPropertiesDeepPatched<T>;
 
-export const keysToCamelCase = <T>(
+// those explicit function type are needed because otherwise tsc will throw: "The inferred type of this node exceeds the maximum length the compiler will serialize. An explicit type annotation is needed."
+export const keysToCamelCase: <T>(obj: T) => CamelCasedPropertiesDeep<T> = <T>(
   obj: T
-): CamelCasedPropertiesDeepPatched<T> => convertFields(obj, "camel");
+) => convertFields(obj, "camel");
 
-export const keysToSnakeCase = <T>(
+export const keysToSnakeCase: <T>(obj: T) => SnakeCasedPropertiesDeep<T> = <T>(
   obj: T
-): SnakeCasedPropertiesDeepPatched<T> => convertFields(obj, "snake");
+) => convertFields(obj, "snake");
 
 const toCamel = (str: string) => {
   return str.replace(/([-_][a-z])/gi, (x) => {
