@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 // patch inspired from https://github.com/sindresorhus/type-fest/pull/327
 
-import { CamelCase } from "./camel-case";
-import { DelimiterCase } from "./delimiter-case";
+import type { CamelCase } from "./typeFestCopies/camel-case";
+import type { DelimiterCase } from "./typeFestCopies/delimiter-case";
 
 export type SnakeCasedPropertiesDeepPatched<Value> = DelimiterCasedPropertiesDeepPatched<
   Value,
@@ -24,12 +24,12 @@ type DelimiterCasedPropertiesDeepPatched<Value, Delimiter extends string, Exclud
   : Value extends Set<infer U>
   ? Set<DelimiterCasedPropertiesDeepPatched<U, Delimiter, Exclude>>
   : {
-      [K in keyof Value as DelimiterCase<K, Delimiter>]: DelimiterCasedPropertiesDeepPatched<
-        Value[K],
-        Delimiter,
-        Exclude
-      >;
-    };
+    [K in keyof Value as DelimiterCase<K, Delimiter>]: DelimiterCasedPropertiesDeepPatched<
+      Value[K],
+      Delimiter,
+      Exclude
+    >;
+  };
 
 type CamelCasedPropertiesDeepPatchedInternal<Value, Exclude = never> = Value extends Exclude | Function
   ? Value
@@ -38,5 +38,5 @@ type CamelCasedPropertiesDeepPatchedInternal<Value, Exclude = never> = Value ext
   : Value extends Set<infer U>
   ? Set<CamelCasedPropertiesDeepPatchedInternal<U, Exclude>>
   : {
-      [K in keyof Value as CamelCase<K>]: CamelCasedPropertiesDeepPatchedInternal<Value[K], Exclude>;
-    };
+    [K in keyof Value as CamelCase<K>]: CamelCasedPropertiesDeepPatchedInternal<Value[K], Exclude>;
+  };

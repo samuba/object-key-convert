@@ -1,4 +1,4 @@
-import { CamelCasedPropertiesDeepPatched, SnakeCasedPropertiesDeepPatched } from "./types/typeFestPatch";
+import { CamelCasedPropertiesDeepPatched, SnakeCasedPropertiesDeepPatched } from "./typeFestPatch";
 
 export type SnakeCasedPropertiesDeep<T> = SnakeCasedPropertiesDeepPatched<T>;
 
