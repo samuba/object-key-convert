@@ -3,7 +3,10 @@
     "target": "ES2015",
     "useDefineForClassFields": true,
     "module": "ES2015",
-    "lib": ["ES2015", "DOM"],
+    "lib": [
+      "ES2015",
+      "DOM"
+    ],
     "moduleResolution": "Node",
     "strict": true,
     "sourceMap": true,
@@ -13,7 +16,10 @@
     "noUnusedLocals": false, // used in tests.ts
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true
   },
-  "include": ["./src"]
+  "include": [
+    "./src"
+  ]
 }
